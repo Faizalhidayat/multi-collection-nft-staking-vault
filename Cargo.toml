@@ -1,0 +1,37 @@
+[package]
+name = "multi-collection-nft-staking-vault"
+version = "0.1.0"
+authors = ["Faizal hidayat faizal1402@gmail.com>"]
+edition = "2021"
+description = "A smart contract for staking NFTs from multiple collections and distributing IBC token rewards"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+library = []
+
+
+[dependencies]
+cosmwasm-schema = "1.1.0"
+cosmwasm-std = "1.1.0"
+cw-storage-plus = "1.0.1"
+schemars = "0.8.10"
+serde = { version = "1.0.145", default-features = false, features = ["derive"] }
+thiserror = "1.0.31"
+cw-multi-test = { version = "0.16.2", optional = true }
+
+[dev-dependencies]
+cw-multi-test = "0.16.2"
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+panic = 'abort'
+incremental = false
+overflow-checks = true
